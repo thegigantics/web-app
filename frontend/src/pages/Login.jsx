@@ -1,38 +1,76 @@
-import React from "react";
-import { useAuth } from "../context/AuthContext";
+import React, { useState, useEffect } from "react";
+import { FaEnvelope, FaLock, FaUser } from "react-icons/fa";
+import { auth, googleProvider } from "../firebase"; // Ensure firebase is configured
+import { signInWithPopup } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import "../styles/styles.css"; // Ensure correct CSS file is included
+import logo from "/images/logo.png"; // Add your logo
+import loginImage from "/images/login-image.png"; // Add the left-side image
 
 const Login = () => {
-  const { user, loginWithGoogle, logout } = useAuth();
+  const [showModal, setShowModal] = useState(true); // Open modal on page load
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleGoogleLogin = async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+      alert("Logged in successfully with Google!");
+    } catch (error) {
+      console.error("Google Login Error:", error);
+    }
+  };
+
+  const handleEmailLogin = async (e) => {
+    e.preventDefault();
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      alert("Logged in successfully!");
+    } catch (error) {
+      console.error("Email Login Error:", error);
+    }
+  };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 shadow-lg rounded-lg w-full max-w-sm text-center">
-        <h2 className="text-2xl font-bold mb-4">Welcome</h2>
-
-        {user ? (
-          <>
-            <p className="mb-4 text-gray-700">Hello, {user.displayName} 👋</p>
-            <button
-              onClick={logout}
-              className="w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg transition"
-            >
-              Logout
-            </button>
-          </>
-        ) : (
-          <button
-            onClick={loginWithGoogle}
-            className="google-login-btn"
-          >
-            <img
-              src="https://www.svgrepo.com/show/475656/google-color.svg"
-              alt="Google Logo"
-              className="google-icon"
-            />
-            <span className="google-text">Login with Google</span>
-          </button>
-        )}
-      </div>
+    <div className="login-wrapper">
+      {showModal && (
+        <div className="login-modal">
+          <div className="login-container">
+            <div className="login-left">
+              <img src={loginImage} alt="Login" />
+            </div>
+            <div className="login-right">
+              <FaUser className="login-icon" />
+              <h2>Sign In</h2>
+              <form onSubmit={handleEmailLogin}>
+                <input
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+                <button type="submit">Sign In</button>
+              </form>
+              <p className="forgot-password">Forgot your password?</p>
+              <button className="google-login" onClick={handleGoogleLogin}>
+                Sign in with Google
+              </button>
+              <p className="signup-link">
+                Don't have an account? <a href="/register">Sign up</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

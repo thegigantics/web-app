@@ -852,6 +852,18 @@ footer {
   .newsletter-form .btn {
     border-radius: 30px;
   }
+  
+  .login-modal {
+    flex-direction: column; /* Stack on small screens */
+    width: 90%;
+  }
+  .login-image {
+    width: 100%;
+    height: 200px; /* Maintain aspect ratio */
+  }
+  .login-form {
+    width: 100%;
+  }
 }
 
 @media (max-width: 480px) {
@@ -878,4 +890,163 @@ footer {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Wrapper for the modal */
+.login-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.login-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Modal Box */
+.login-modal {
+  background: white;
+  width: 700px; /* Increased width */
+  height: 600px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: row; /* Ensure left-right alignment */
+  overflow: hidden;
+}
+
+.login-left {
+  
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-right {
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-right input {
+	width: 90%;
+    margin: 10px 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.login-right button {
+	width: 90%;
+    padding: 10px;
+    margin: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style the left image section */
+.login-image {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-image img {
+    max-width: 100%;
+    height: auto;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+/* Right Side Login Form */
+/* Style the right login form */
+.login-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-color: white;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-icon {
+  font-size: 40px;
+  color: #555;
+}
+
+/* Ensure the form elements align properly */
+.login-form form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.login-form h2 {
+  margin-bottom: 15px;
+}
+
+.login-form input {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.login-form button {
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Google Sign-In Button */
+.google-login {
+  width: 80%;
+  padding: 12px;
+  background: #db4437;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.google-login:hover {
+  background: #c1351d;
+}
+
+/* Forgot Password */
+.forgot-password {
+  color: #007bff;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Sign-Up Link */
+.signup-link {
+  margin-top: 15px;
 }

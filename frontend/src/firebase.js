@@ -1,17 +1,20 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApps, getApp  } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut } from "firebase/auth";
 
+
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+ apiKey: import.meta.env.VITE_FIREBASE_APIKEY,
+ authDomain: import.meta.env.VITE_FIREBASE_AUTHDOMAIN,
+ projectId: import.meta.env.VITE_FIREBASE_PROJECTID,
+ storageBucket: import.meta.env.VITE_FIREBASE_STORAGEBUCKET,
+ messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGINGSENDERID,
+ appId: import.meta.env.VITE_FIREBASE_APPID,
+ measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENTID
 };
 
-const app = initializeApp(firebaseConfig);
+// Check if Firebase app is already initialized
+const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const provider = new GoogleAuthProvider();
+const googleProvider = new GoogleAuthProvider();
 
-export { auth, provider, signInWithPopup, signOut };
+export { app, auth, googleProvider, signInWithPopup, signOut };
