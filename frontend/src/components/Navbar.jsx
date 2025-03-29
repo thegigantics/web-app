@@ -15,9 +15,6 @@ const Navbar = ({ children }) => {
               <img src="/images/logo.png" alt="The GigAntics Logo" />
             </Link>
           </div>
-          <div className="menu-toggle">
-            <i className="fas fa-bars"></i>
-          </div>
 		  
 		  {/* Standard Menu (Visible on Large Screens) */}
           <ul className={menuOpen ? "nav-links open" : "nav-links"}>
@@ -30,7 +27,7 @@ const Navbar = ({ children }) => {
 		  
 		  {/* Hamburger Button (Visible on Small Screens) */}
 		  <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-            ☰
+            <i className="fas fa-bars"></i>
           </button>
         </nav>
       </header>
