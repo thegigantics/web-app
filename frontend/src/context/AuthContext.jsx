@@ -1,16 +1,20 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { getAuth, onAuthStateChanged, signInWithPopup, GoogleAuthProvider, signOut } from "firebase/auth";
 import { initializeApp } from "firebase/app";
+import dotenv from "dotenv";
+
+// Load environment variables
+dotenv.config();
 
 // Firebase Config (Replace with your Firebase credentials)
 const firebaseConfig = {
-  apiKey: "AIzaSyAUooLywGkoQDbwzXUm974MeQ7xzpytpfs",
-  authDomain: "the-gigantics.firebaseapp.com",
-  projectId: "the-gigantics",
-  storageBucket: "the-gigantics.firebasestorage.app",
-  messagingSenderId: "179033552687",
-  appId: "1:179033552687:web:f0528043cb47aba9c5d3da",
-  measurementId: "G-HV5MCT2G1N"
+  apiKey: process.env.FIREBASE_APIKEY,
+  authDomain: process.env.FIREBASE_AUTHDOMAIN,
+  projectId: process.env.FIREBASE_PROJECTID,
+  storageBucket: process.env.FIREBASE_STORAGEBUCKET,
+  messagingSenderId: process.env.FIREBASE_MESSAGINGSENDERID,
+  appId: process.env.FIREBASE_APPID,
+  measurementId: process.env.FIREBASE_MEASUREMENTID
 };
 
 // Initialize Firebase
