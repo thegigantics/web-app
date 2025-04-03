@@ -899,7 +899,7 @@ footer {
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 100vh;
+    height: 50vh;
     background-color: #f8f9fa;
 }
 
@@ -908,24 +908,26 @@ footer {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.4);
+  background: url(images/login-bg.png);
+  background-repeat: no-repeat;
+  background-size: auto;
 }
 
 /* Modal Box */
 .login-modal {
   background: white;
   width: 700px; /* Increased width */
-  height: 600px;
+  height: 430px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: row; /* Ensure left-right alignment */
   overflow: hidden;
+  box-shadow: 5px 5px lightgrey;
 }
 
 .login-left {
-  
-  width: 100%;
+  width: 80%;
   align-items: center;
   justify-content: center;
 }
@@ -955,6 +957,16 @@ footer {
     border-radius: 5px;
     cursor: pointer;
 }
+
+.login-right p {
+    padding: 10px;
+    margin: 0px 10px;
+}
+
+.login-right a {
+    color: #007bff;
+}
+
 
 /* Style the left image section */
 .login-image {

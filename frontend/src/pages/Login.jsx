@@ -41,8 +41,6 @@ const Login = () => {
               <img src={loginImage} alt="Login" />
             </div>
             <div className="login-right">
-              <FaUser className="login-icon" />
-              <h2>Sign In</h2>
               <form onSubmit={handleEmailLogin}>
                 <input
                   type="email"

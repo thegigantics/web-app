@@ -135,7 +135,7 @@ const About = () => {
             <h2>The Birth of GigAntics</h2>
             <p>Here we go, The GigAntics Community was born. A space where professionals from all backgrounds come together to build meaningful connections, share opportunities, and support each other through career transitions.</p>
             <p>We're more than just a network; we're dedicated to transforming how professionals navigate their careers in today's unpredictable job market.</p>
-			<a href="#" className="cta-button">Join Our Community</a>
+			<a href="/login" className="cta-button">Join Our Community</a>
           </div>
         </div>
       </section>
