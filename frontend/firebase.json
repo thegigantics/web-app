@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist",       // ✅ Tells Firebase to serve files from /dist
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      { "source": "**", "destination": "/index.html" }  // 🧠 For SPA like React
+    ]
+  }
+}
+

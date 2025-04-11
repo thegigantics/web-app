@@ -8,15 +8,20 @@ import "../styles/styles.css"; // Ensure correct CSS file is included
 import logo from "/images/logo.png"; // Add your logo
 import loginImage from "/images/login-image.png"; // Add the left-side image
 
+
+
 const Login = () => {
   const [showModal, setShowModal] = useState(true); // Open modal on page load
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleGoogleLogin = async () => {
     try {
-      await signInWithPopup(auth, googleProvider);
-      alert("Logged in successfully with Google!");
+      await signInWithPopup(auth, googleProvider)
+	  .then((result) => {
+		navigate("/dashboard"); // This will now work as expected
+	  })
     } catch (error) {
       console.error("Google Login Error:", error);
     }
@@ -26,7 +31,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      alert("Logged in successfully!");
+      navigate("/dashboard");
     } catch (error) {
       console.error("Email Login Error:", error);
     }

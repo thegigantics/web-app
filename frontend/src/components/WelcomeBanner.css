@@ -1,0 +1,37 @@
+.welcome-banner {
+  background: linear-gradient(to right, #00695c, #26a69a);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 16px;
+  margin: 1rem auto;
+  width: fit-content;
+  max-width: 90%;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  animation: fadeIn 0.4s ease;
+}
+
+.welcome-banner button {
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
